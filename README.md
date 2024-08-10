@@ -20,7 +20,7 @@ A tremendous amount of images are shared every day, many of them are fake and ca
 
 ## Training
 ```
-git clone https://github.com/yourusername/your-repo-name](https://github.com/AsadNizami/Y-Net.git
+git clone https://github.com/AsadNizami/Y-Net.git
 cd Y-Net/src
 ```
 Configure the config.py file for you environment
