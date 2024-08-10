@@ -8,7 +8,7 @@ def conv_block(x, filters, kernel_size=3, stride=1):
     x = layers.Conv2D(filters, kernel_size, strides=stride, padding='same')(x)
     x = layers.BatchNormalization()(x)
     x = layers.ReLU()(x)
-    # x = CBAM()(x) 
+    x = CBAM()(x) 
 
     return x
 
@@ -16,7 +16,7 @@ def upconv_block(x, filters, kernel_size=3):
     x = layers.Conv2DTranspose(filters, kernel_size, strides=2, padding='same')(x)
     x = layers.BatchNormalization()(x)
     x = layers.ReLU()(x)
-    # x = CBAM()(x) 
+    x = CBAM()(x) 
 
     return x
 

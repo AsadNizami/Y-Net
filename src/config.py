@@ -17,21 +17,14 @@ from datetime import datetime
 ##
 
 path = '/media/asad/Windows-SSD/Users/ASAD/Documents/Dissertation/bootstrap/train/'
-# data_dirs = ['dcas_1_2', 'df_1', 'df_2', 'df_3', 'df_4', 'df_5', 'df_6', 'df_7', 'dfr']
-# data_dirs = ['dso-1']
 data_dirs = ['dcas_1_2']
-# data_dirs = ['dcas_1_2', 'df_1', 'df_3', 'df_5', 'df_7', 'dfr']
 
 
 save_path = './logs/'
-model_name = 'ablation_wo_cbam'  # A new directory will be created for this model
+model_name = 'ynet'  # A new directory will be created for this model
 
 logdir = save_path + 'diag'
 
-# tboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir,
-#                                                  histogram_freq = 1,
-#                                                  profile_batch = '500,600')
-# IMAGE_SIZE = (384, 384)
 IMAGE_SIZE = (256, 256)
 MASK_SIZE = IMAGE_SIZE
 SEED = 7

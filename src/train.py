@@ -10,8 +10,6 @@ from plot import *
 from custom_layer import CBAM
 from metrics import *
 
-
-# tf.debugging.experimental.enable_dump_debug_info(logdir, tensor_debug_mode="FULL_HEALTH", circular_buffer_size=-1)
 print('=============================================================================')
 print('Path:', path)
 print('Batch:', BATCH)
@@ -61,21 +59,15 @@ if not os.path.exists(save_path + model_name):
 callbacks = [
     tf.keras.callbacks.ModelCheckpoint(filepath=save_path + model_name + '/epoch15_{epoch:02d}.keras', monitor='val_loss', verbose=2, save_best_only=True, mode='min'),
     ImageCallback(test_dataset=val, mod=model),
-    # tboard_callback
 ]
 
 print('\nCallback created!\n')
 
 model.compile(optimizer=optimizer, loss=weighted_dice_bce_loss, metrics=[dice_coefficient, iou, accuracy], jit_compile=True)
-# model.compile(optimizer=optimizer, loss=weighted_dice_bce_loss, metrics=[iou, accuracy, dice_coefficient, precision, recall], jit_compile=True)
 
 print('\nModel compiled\n')
 
-# tf.profiler.experimental.start(logdir)
-# Your TensorFlow code here
 res = model.fit(train, validation_data=val, epochs=epochs, callbacks=callbacks)
-# tf.profiler.experimental.stop()
-
 plot_results(res)
 
 if SAVE_FLAG:
