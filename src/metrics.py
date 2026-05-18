@@ -32,8 +32,12 @@ def dice_coefficient(y_true, y_pred):
     dice = 2 * prec * recal / (prec + recal)
     return dice
 
+def soft_dice_coefficient(y_true, y_pred, smooth=1e-6):
+        intersection = tf.reduce_sum(y_true * y_pred)
+        return (2. * intersection + smooth) / (tf.reduce_sum(y_true) + tf.reduce_sum(y_pred) + smooth)
+
 def dice_loss(y_true, y_pred):
-    return 1-dice_coefficient(y_true, y_pred)
+    return 1-soft_dice_coefficient(y_true, y_pred)
 
 def weighted_dice_bce_loss(y_true, y_pred):
     weight = 0.85

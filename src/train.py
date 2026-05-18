@@ -32,7 +32,7 @@ val_size = int(0.25 * DATASET_SIZE)
 train = dataset.take(train_size)
 val = dataset.skip(train_size)
 
-# model = YNet()
+model = YNet()
 
 custom_objects = {
     'CBAM': CBAM,
@@ -45,7 +45,7 @@ custom_objects = {
     'recall': recall
 }
 
-model = tf.keras.models.load_model('./logs/ablation_wo_cbam/epoch50_14.keras', custom_objects=custom_objects)
+# model = tf.keras.models.load_model('./logs/ablation_wo_cbam/epoch50_14.keras', custom_objects=custom_objects)
 model.summary()
 
 print('\nPath:', path)

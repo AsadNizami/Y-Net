@@ -3,6 +3,7 @@ import random
 import numpy as np
 from datetime import datetime
 
+tf.keras.mixed_precision.set_global_policy('mixed_float16')
 ##
 # Expected directory structure
 # ...path/
@@ -16,8 +17,8 @@ from datetime import datetime
 #       ...
 ##
 
-path = '/media/asad/Windows-SSD/Users/ASAD/Documents/Dissertation/bootstrap/train/'
-data_dirs = ['dcas_1_2']
+path = '/media/ubuntu/New Volume1/dataset/train/'
+data_dirs = ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'dcas_1_2', 'd_cpy_mv', 'dfr']
 
 
 save_path = './logs/'

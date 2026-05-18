@@ -1,0 +1,46 @@
+# Training outputs
+logs/
+results.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# ML artifacts
+*.keras
+*.h5
+*.pb
+*.pkl
+*.ckpt
+*.ckpt.*
+wandb/
+
+# Environment / secrets
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+Springer_Nature_LaTeX_Template_Ynet/
+Springer_Nature_LaTeX_Template_Ynet.zip
+review.txt
+claude_response.txt
