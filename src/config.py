@@ -10,7 +10,7 @@ tf.keras.mixed_precision.set_global_policy('mixed_float16')
 #       d1/
 #           tp/ images
 #           gt/ masks
-#       d2/ 
+#       d2/
 #           ...
 #       d3/
 #           ...
@@ -22,7 +22,7 @@ data_dirs = ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'dcas_1_2', 'd_cpy_mv', '
 
 
 save_path = './logs/'
-model_name = 'ynet'  # A new directory will be created for this model
+model_name = 'ynet_new_first20may_finetune'  # A new directory will be created for this model
 
 logdir = save_path + 'diag'
 
@@ -37,9 +37,7 @@ np.random.seed(SEED)
 tf.random.set_seed(SEED)
 
 epochs = 60
-INIT_LR = 3e-3
-
-optimizer = tf.keras.optimizers.Adam(learning_rate=INIT_LR)
+INIT_LR = 2e-4
 
 SAVE_FLAG = True
 

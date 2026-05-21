@@ -1,16 +1,19 @@
 import matplotlib.pyplot as plt
-import tensorflow as tf
 import numpy as np
+from keras.callbacks import Callback
 from config import *
 
 
-class ImageCallback(tf.keras.callbacks.Callback):
-    def __init__(self, test_dataset, mod):
+class ImageCallback(Callback):
+    def __init__(self, test_dataset, mod, every=1):
         self.test_dataset = test_dataset
         self.mod = mod
+        self.every = every
         self.test_batch = next(iter(self.test_dataset))
 
     def on_epoch_end(self, epoch, logs=None):
+        if (epoch + 1) % self.every != 0:
+            return
         test_images, ground_truth_masks = self.test_batch
         predicted_masks = self.mod.predict(test_images) > 0.5
         self.plot_images(test_images, predicted_masks, ground_truth_masks, epoch)

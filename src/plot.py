@@ -39,6 +39,6 @@ def add_row(file_path, data_dict):
     except FileNotFoundError:
         df = pd.DataFrame(columns=data_dict.keys())
 
-    df = df._append(data_dict, ignore_index=True)
+    df = pd.concat([df, pd.DataFrame([data_dict])], ignore_index=True)
 
     df.to_csv(file_path, index=False)
